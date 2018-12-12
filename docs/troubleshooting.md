@@ -225,7 +225,7 @@ You tried to deploy Algo from Windows and you received an error like this one:
 
 ```
 TASK [cloud-azure : Create an instance].
-fatal: [localhost]: FAILED! => {"changed": false, 
+fatal: [localhost]: FAILED! => {"changed": false,
 "msg": "Error creating or updating virtual machine AlgoVPN - Azure Error:
 InvalidParameter\n
 Message: The value of parameter linuxConfiguration.ssh.publicKeys.keyData is invalid.\n
@@ -239,7 +239,7 @@ This is related to [the chmod issue](https://github.com/Microsoft/WSL/issues/81)
 You tried to deploy Algo from Docker and you received an error like this one:
 
 ```
-Failed to connect to the host via ssh: 
+Failed to connect to the host via ssh:
 Warning: Permanently added 'xxx.xxx.xxx.xxx' (ECDSA) to the list of known hosts.\r\n
 Control socket connect(/root/.ansible/cp/6d9d22e981): Connection refused\r\n
 Failed to connect to new control master\r\n
@@ -261,7 +261,7 @@ TASK [wireguard : Generate public keys] ****************************************
 [WARNING]: Unable to find 'configs/xxx.xxx.xxx.xxx/wireguard//private/dan' in expected paths.
 
 fatal: [localhost]: FAILED! => {"msg": "An unhandled exception occurred while running the lookup plugin 'file'. Error was a <class 'ansible.errors.AnsibleError'>, original message: could not locate file in lookup: configs/xxx.xxx.xxx.xxx/wireguard//private/dan"}
-``` 
+```
 This error is usually hit when using the local install option on a server that isn't Ubuntu 18.04. You should upgrade your server to Ubuntu 18.04. If this doesn't work, try removing `*.lock` files at /etc/wireguard/ as follows:
 
 ```ssh
@@ -335,7 +335,7 @@ Then, set the MTU size on your network adapter (wlan0 or eth0):
 $ sudo ifconfig wlan0 mtu 1438
 ```
 
-You can also set the `max_mss` variable to a new value in config.cfg, and then redeploy your server rather than reconfigure the current one in-place.
+You can also set the `mtu` variable to a new value in config.cfg, and then redeploy your server rather than reconfigure the current one in-place.
 
 ### Clients appear stuck in a reconnection loop
 

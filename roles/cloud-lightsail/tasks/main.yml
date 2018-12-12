@@ -40,6 +40,7 @@
     - set_fact:
         cloud_instance_ip: "{{ algo_instance['instance']['public_ip_address'] }}"
         ansible_ssh_user: ubuntu
+        mtu: "{{ cloud_providers.lightsail.mtu|default(0) }}"
     environment:
       PYTHONPATH: "{{ lightsail_venv }}/lib/python2.7/site-packages/"
 

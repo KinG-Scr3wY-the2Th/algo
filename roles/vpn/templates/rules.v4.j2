@@ -10,8 +10,8 @@
 :OUTPUT ACCEPT [0:0]
 :POSTROUTING ACCEPT [0:0]
 
-{% if max_mss is defined %}
--A FORWARD -s {{ vpn_network }}{% if wireguard_enabled %},{{ wireguard_vpn_network }}{% endif %} -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss {{ max_mss }}
+{% if mtu|int != 0 %}
+-A FORWARD -s {{ vpn_network }}{% if wireguard_enabled %},{{ wireguard_vpn_network }}{% endif %} -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss {{ mtu|int - 40 }}
 {% endif %}
 
 COMMIT

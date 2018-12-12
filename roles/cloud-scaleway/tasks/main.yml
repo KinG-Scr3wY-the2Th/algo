@@ -132,6 +132,7 @@
   - set_fact:
       cloud_instance_ip: "{{ algo_instance['json']['server']['public_ip']['address'] }}"
       ansible_ssh_user: root
+      mtu: "{{ cloud_providers.scaleway.mtu|default(0) }}"
 
   rescue:
   - debug: var=fail_hint

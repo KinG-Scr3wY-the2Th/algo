@@ -41,6 +41,7 @@
       - set_fact:
           cloud_instance_ip: "{{ azure_rm_deployment.deployment.outputs.publicIPAddresses.value }}"
           ansible_ssh_user: ubuntu
+          mtu: "{{ cloud_providers.azure.mtu|default(0) }}"
       environment:
         PYTHONPATH: "{{ azure_venv }}/lib/python2.7/site-packages/"
   rescue:

@@ -20,6 +20,7 @@
     algo_windows: "{{ algo_windows }}"
     algo_store_cakey: "{{ algo_store_cakey }}"
     IP_subject_alt_name: "{{ IP_subject_alt_name }}"
+    mtu: "{{ mtu }}"
 
 - name: Additional variables for the server
   add_host:

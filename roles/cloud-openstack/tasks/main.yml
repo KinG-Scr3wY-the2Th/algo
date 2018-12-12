@@ -79,6 +79,7 @@
     - set_fact:
         cloud_instance_ip: "{{ os_server['openstack']['public_v4'] }}"
         ansible_ssh_user: ubuntu
+        mtu: "{{ cloud_providers.openstack.mtu|default(0) }}"
     environment:
       PYTHONPATH: "{{ openstack_venv }}/lib/python2.7/site-packages/"
 

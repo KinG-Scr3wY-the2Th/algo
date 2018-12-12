@@ -3,6 +3,7 @@ Address = {{ wireguard_server_ip }}
 ListenPort = {{ wireguard_port }}
 PrivateKey = {{ lookup('file', wireguard_config_path + '/private/' + IP_subject_alt_name) }}
 SaveConfig = false
+{{ 'MTU = ' + mtu if mtu|int > 0 else '' }}
 
 {% for u in wireguard_users %}
 {% if u in users %}

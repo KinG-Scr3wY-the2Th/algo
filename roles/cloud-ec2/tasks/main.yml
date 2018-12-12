@@ -39,6 +39,7 @@
       - set_fact:
           cloud_instance_ip: "{{ stack.stack_outputs.ElasticIP }}"
           ansible_ssh_user: ubuntu
+          mtu: "{{ cloud_providers.ec2.mtu|default(0) }}"
       environment:
         PYTHONPATH: "{{ ec2_venv }}/lib/python2.7/site-packages/"
   rescue:

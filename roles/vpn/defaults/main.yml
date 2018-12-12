@@ -1,4 +1,5 @@
 ---
+mtu: 0
 strongswan_shell: /usr/sbin/nologin
 strongswan_home: /var/lib/strongswan
 BetweenClients_DROP: true

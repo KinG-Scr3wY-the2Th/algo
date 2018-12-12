@@ -26,6 +26,7 @@
   - set_fact:
       cloud_instance_ip: "{{ vultr_server.vultr_server.v4_main_ip }}"
       ansible_ssh_user: root
+      mtu: "{{ cloud_providers.vultr.mtu|default(0) }}"
 
   environment:
     VULTR_API_CONFIG: "{{ algo_vultr_config }}"

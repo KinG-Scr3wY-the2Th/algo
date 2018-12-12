@@ -67,6 +67,7 @@
       - set_fact:
           cloud_instance_ip: "{{ do.droplet.ip_address }}"
           ansible_ssh_user: root
+          mtu: '{{ cloud_providers.digitalocean.mtu|default(0) }}'
 
       - name: Tag the droplet
         digital_ocean_tag:

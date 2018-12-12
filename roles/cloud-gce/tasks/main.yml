@@ -53,6 +53,7 @@
       - set_fact:
           cloud_instance_ip: "{{ google_vm.instance_data[0].public_ip }}"
           ansible_ssh_user: ubuntu
+          mtu: "{{ cloud_providers.gce.mtu|default(0) }}"
       environment:
         PYTHONPATH: "{{ gce_venv }}/lib/python2.7/site-packages/"
   rescue:
